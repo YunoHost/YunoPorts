@@ -46,7 +46,7 @@ foreach($ports as $key => $port)
 }
 $web = array(80, 443);
 $xmpp = array(5222, 5269);
-$email = array(25, 465, 587);
+$email = array(25, 465, 587, 993);
 echo "<ul><li>Web: ";
 foreach($web as $port)
 	display_status($port, $ports_status);
