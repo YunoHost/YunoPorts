@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta charset='UTF-8'>
-  <title>YunoPort – Check ports are open on YunoHost instance</title>
+  <title>YunoPorts – Check opened ports on YunoHost instance</title>
   <link rel="icon" type="image/png" href="img/greendot.png" />
  </head>
 <body>
@@ -35,6 +35,7 @@ function display_status($port, $ports_status)
 
 if ($_GET['submit'] !== 'OK')
 	return;
+echo "<a href='https://yunohost.org/#/isp_box_config'>Ports documentation</a><br />";
 echo "<strong><a href='https://$host'>$host</a></strong>:<br />";
 foreach($ports as $key => $port)
 {
