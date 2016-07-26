@@ -7,15 +7,21 @@
  </head>
 <body>
 <h2>YunoPort – Check if ports are open on YunoHost instance</h2>
+<a href='https://yunohost.org/#/isp_box_config'>Ports documentation</a><br /><br />
  <form method='GET'>
  Domain name or IP address:
  <input type='text' name='host' value='' / >
+ Extra port:
+ <input type='int' name='eport' value='' / >
  <input type='submit' name='submit' value='OK' />
 </form>
 
 <?php
 $host = $_GET['host'];
+$eport = $_GET['eport'];
 $ports = array(22, 25, 53, 80, 443, 465, 587, 993, 5222, 5269);
+if ($eport)
+	$ports[] = $eport;
 
 function open_port($host, $port)
 {
@@ -35,7 +41,6 @@ function display_status($port, $ports_status)
 
 if ($_GET['submit'] !== 'OK')
 	return;
-echo "<a href='https://yunohost.org/#/isp_box_config'>Ports documentation</a><br />";
 echo "<strong><a href='https://$host'>$host</a></strong>:<br />";
 foreach($ports as $key => $port)
 {
@@ -60,6 +65,11 @@ foreach($email as $port)
 	display_status($port, $ports_status);
 echo "</li><li>DNS: ";
 display_status(53, $ports_status);
+if ($eport)
+{
+	echo "</li><li>Extra: ";
+	display_status($eport, $ports_status);
+}
 echo "</li></ul>";
 ?>
 
