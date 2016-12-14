@@ -30,6 +30,6 @@ function ports_status($ports, $host) {
 function display_status($port, $ports_status) {
     $status_title = ($ports_status[$port]) ? "Open" : "Closed";
     $status_class = ($ports_status[$port]) ? 'status-open' : 'status-close';
-    echo "<span class='status $status_class' title="$title">$port</span>";
+    echo "<span class='status $status_class' title="$status_title">$port</span>";
 }
 
