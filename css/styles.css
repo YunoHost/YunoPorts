@@ -1,0 +1,104 @@
+/**
+ * We support IE8+ only, so we could use the border-box model
+ * see http://paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+* {
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+body {
+    max-width: 60em;
+    margin: 0 auto;
+    color: #111;
+}
+a, a:link, a:visited {
+    color: #119;
+    text-decoration: none;
+}
+a:hover,
+a:focus {text-decoration: underline;}
+
+header {
+    background: #eee;
+    padding: 2em;
+}
+
+.doc {
+    text-align: right;
+    border-bottom: 2px solid #eee;
+    padding: 1em 0;
+    margin: 0 0 1em 0;
+}
+
+form {
+    margin: 2em 0;
+}
+form label,
+form input[type="submit"] {
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: flex-end;
+}
+form p {
+    margin-right: 2em;
+}
+
+form label {
+    display: block;
+}
+
+form input {
+    min-height: 2.2em;
+}
+
+form input[name="host"] {
+    width: 20em;
+}
+
+.results {
+    margin: 2em 0;
+    border-top: 2px solid #eee;
+}
+
+.results h2 a {
+    color: #111;
+}
+
+.results .status {
+    display: inline-block;
+    vertical-align: middle;
+}
+.results .status::after {
+    content: " - ";
+    display: inline;
+}
+.results .status:last-child::after {content: "";}
+
+.results .status::before {
+    content: "";
+    display: inline-block;
+    vertical-align: baseline;
+    width: 0.75em;
+    height: 0.75em;
+    margin-right: 0.25em;
+    border-radius: 1em;
+}
+.results .status.status-open {
+    color: green;
+}
+.results .status.status-open::before {
+    background: green;
+}
+.results .status.status-close::before {
+    background: red;
+}
+.results .status.status-close {
+    color: red;
+}

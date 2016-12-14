@@ -28,11 +28,8 @@ function ports_status($ports, $host) {
  * Return html status for a specific port
  */
 function display_status($port, $ports_status) {
-    if ($ports_status[$port] != 1) {
-        echo "<img src='img/reddot.png' height='20px'>";
-    } else {
-        echo "<img src='img/greendot.png' height='20px'>";
-    }
-    echo "$port, ";
+    $status_title = ($ports_status[$port]) ? "Open" : "Closed";
+    $status_class = ($ports_status[$port]) ? 'status-open' : 'status-close';
+    echo "<span class='status $status_class' title="$title">$port</span>";
 }
 

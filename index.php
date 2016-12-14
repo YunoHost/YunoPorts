@@ -43,24 +43,37 @@
 ?><!DOCTYPE html>
 <html>
  <head>
-  <meta charset='UTF-8'>
-  <title>YunoPorts – Check opened ports on YunoHost instance</title>
-  <link rel="icon" type="image/png" href="img/greendot.png" />
+    <meta charset='UTF-8'>
+    <title>YunoPorts – Check opened ports on YunoHost instance</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
  </head>
 <body>
-    <h2>YunoPort – Check if ports are open on YunoHost instance</h2>
-    <a href='https://yunohost.org/#/isp_box_config'>Ports documentation</a><br /><br />
-     <form method='GET'>
-     Domain name or IP address:
-     <input type='text' name='host' value='' / >
-     Extra port:
-     <input type='int' name='eport' value='' / >
-     <input type='submit' name='submit' value='OK' />
+    <header>
+        <h1>YunoPorts</h1>
+        <p>Check if ports are open on YunoHost instance.</p>
+    </header>
+
+    <p class="doc">
+        <a href='https://yunohost.org/#/isp_box_config'>Ports documentation</a>
+    </p>
+
+    <form method='GET' class="pure-form">
+        <p>
+            <label for="host">Domain name or IP address:</label>
+            <input type='text' name='host' id='host' value='' />
+        </p>
+        <p>
+            <label for="eport">Extra port:</label>
+            <input type='number' name='eport' id='eport' min="0" max="65535" value='' />
+        </p>
+        <p>
+            <input type='submit' name='submit' value='Check' />
+        </p>
     </form>
     
     <?php if ($format == 'html' && !empty($ports_status)): ?>
-    
-    <strong><a href='https://<?php print $host; ?>'><?php print $host; ?></a></strong>:
+    <div class="results">
+    <h2><a href='https://<?php print $host; ?>'><?php print $host; ?></a></h2>
     <ul>
         <li>Web: 
         <?php foreach ($web as $web_port): ?>
@@ -93,7 +106,7 @@
         </li>
         <?php endif; ?>
     </ul>
-
+    </div>
     <?php endif; ?>
 
  </body>
