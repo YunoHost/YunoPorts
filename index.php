@@ -4,7 +4,7 @@
     include_once 'functions.php';
 
     // Default ports to check
-    $ports = array(22, 25, 53, 80, 443, 465, 587, 993, 5222, 5269);
+    $ports = array(22, 25, 53, 80, 443, 587, 993, 5222, 5269);
 
     // Get variables
     $host = (!empty($_GET['host'])) ? $_GET['host'] : NULL;
@@ -24,7 +24,7 @@
     $web = array(80, 443);
     $ssh = array(22);
     $xmpp = array(5222, 5269);
-    $email = array(25, 465, 587, 993);
+    $email = array(25, 587, 993);
     $dns = array(53);
 
     // Get port status if asked for
