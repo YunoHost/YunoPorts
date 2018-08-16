@@ -4,7 +4,7 @@
     include_once 'functions.php';
 
     // Default ports to check
-    $ports = array(22, 25, 53, 80, 443, 587, 993, 5222, 5269);
+    $ports = array(22, 25, 80, 443, 587, 993, 5222, 5269);
 
     // Get variables
     $host = (!empty($_GET['host'])) ? $_GET['host'] : NULL;
@@ -25,7 +25,6 @@
     $ssh = array(22);
     $xmpp = array(5222, 5269);
     $email = array(25, 587, 993);
-    $dns = array(53);
 
     // Get port status if asked for
     $ports_status = NULL;
@@ -93,11 +92,6 @@
         <li><a href='https://yunohost.org/#/email'>Email:</a> 
         <?php foreach ($email as $email_port): ?>
             <?php display_status($email_port, $ports_status); ?>
-        <?php endforeach; ?>
-        </li>
-        <li>DNS: 
-        <?php foreach ($dns as $dns_port): ?>
-            <?php display_status($dns_port, $ports_status); ?>
         <?php endforeach; ?>
         </li>
         <?php if ($eport): ?>
